@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="gu">
+
+<head>
+    <meta charset="UTF-8">
+    <title>મધુર ટહુકો</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Gujarati:wght@400;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif Gujarati', serif;
+            background: linear-gradient(135deg, #fdf2e9, #f7e7dc, #fbeee6);
+            color: #5a3d2b;
+            overflow-x: hidden;
+            opacity: 0;
+            animation: pageFade 1.5s ease forwards;
+        }
+
+        /* PAGE LOAD */
+        @keyframes pageFade {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Floating Background Circles */
+        body::before,
+        body::after {
+            content: '';
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(199, 155, 122, 0.2), transparent);
+            border-radius: 50%;
+            animation: float 8s infinite ease-in-out alternate;
+            z-index: -1;
+        }
+
+        body::before {
+            top: -100px;
+            left: -100px;
+        }
+
+        body::after {
+            bottom: -100px;
+            right: -100px;
+            animation-delay: 3s;
+        }
+
+        @keyframes float {
+            from {
+                transform: translateY(0px);
+            }
+
+            to {
+                transform: translateY(40px);
+            }
+        }
+
+
+        .back-btn {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            background: linear-gradient(45deg, #5a3d2b, #8a5c42);
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 13px;
+            cursor: pointer;
+            box-shadow: 0 0 12px rgba(138, 92, 66, 0.6);
+            transition: 0.4s;
+            z-index: 10;
+        }
+
+        .back-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 18px rgba(138, 92, 66, 0.9);
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 90px 20px 20px;
+        }
+
+        .header h1 {
+            font-size: 34px;
+            background: linear-gradient(45deg, #8a5c42, #c79b7a);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: floatText 3s ease-in-out infinite;
+        }
+
+        @keyframes floatText {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-6px);
+            }
+        }
+
+        /* Wedding Template */
+        .wedding-template {
+            max-width: 95%;
+            margin: 20px auto 40px;
+            padding: 30px 25px 35px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50px 50px 25px 25px;
+            border: 2px solid #d3b29c;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(199, 155, 122, 0.2);
+            transition: 0.5s;
+            animation: fadeUp 1.4s ease;
+        }
+
+        .wedding-template:hover {
+            box-shadow: 0 0 35px rgba(199, 155, 122, 0.5);
+            transform: translateY(-5px);
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .wedding-template::before {
+            content: "✿ ✦ ✿ ✦ ✿";
+            display: block;
+            margin-bottom: 10px;
+            color: #c79b7a;
+            font-size: 18px;
+            letter-spacing: 3px;
+        }
+
+        .wedding-template h2 {
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .wedding-template p {
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* Divider */
+        .divider {
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, #d3b29c, #8a5c42);
+            margin: 15px auto;
+            border-radius: 5px;
+        }
+
+        /* Grid Section */
+        .grid-section {
+            padding: 15px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        /* Name Card */
+        .name-card {
+            background: linear-gradient(145deg, #ffffff, #f8efe8);
+            padding: 18px;
+            border-radius: 18px;
+            text-align: center;
+            font-size: 15px;
+            border: 1px solid #e2cbb8;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
+            transition: 0.4s ease;
+            cursor: pointer;
+        }
+
+        .name-card:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 0 25px rgba(199, 155, 122, 0.6);
+            background: linear-gradient(145deg, #fff, #f3e3d7);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 14px;
+            color: #7a5239;
+            animation: fadeUp 2s ease;
+        }
+
+        /* Desktop */
+        @media(min-width:768px) {
+            .header h1 {
+                font-size: 42px;
+            }
+
+            .grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 25px;
+            }
+
+            .name-card {
+                font-size: 18px;
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <button class="back-btn" onclick="window.location.href='index.html'">← પાછા જાવ</button>
+
+    <header class="header">
+        <h1>મધુર ટહુકો</h1>
+    </header>
+
+    <div class="wedding-template">
+        <h2>💍 શુભ લગ્ન પ્રસંગ 💍</h2>
+        <div class="divider"></div>
+        <p>
+            પ્રેમના સુગંધિત ફૂલોથી સજાયેલ આ પવિત્ર બંધનમાં
+            આપ સૌની હાજરી અમારી ખુશીને પૂર્ણ બનાવશે 💖
+        </p>
+        <br>
+        <p>
+            દિલથી દિલનો મિલન અને જીવનભરનો સાથ,
+            આ શુભ પ્રસંગે આપનું હાર્દિક સ્વાગત છે 🌸
+        </p>
+        <br>
+        <p>
+            સપનાઓને સાકાર કરતો આ શુભ ક્ષણ,
+            આપની હાજરીથી વધુ સુંદર બનશે ✨
+        </p>
+        <br>
+        <p>
+            પ્રેમ, વિશ્વાસ અને સ્નેહના બંધનમાં બંધાતી
+            આ નવી શરૂઆતમાં આપ સૌ આમંત્રિત છો 💐
+        </p>
+        <br>
+        <p>
+            પ્રેમના રંગોથી રંગાયેલ આ શુભ લગ્ન પ્રસંગે,
+            આપ સૌને સહપરિવાર પધારવા વિનંતી 💞
+        </p>
+
+    </div>
+
+    <section class="grid-section">
+        <div class="grid">
+            <div class="name-card">મિતલ</div>
+            <div class="name-card">ખુશી</div>
+            <div class="name-card">નેહા</div>
+            <div class="name-card">મિત્ર</div>
+            <div class="name-card">વિદ્યા</div>
+            <div class="name-card">ઓમ</div>
+            <div class="name-card">ચાંદની</div>
+            <div class="name-card">નિશા</div>
+        </div>
+    </section>
+
+    <div class="footer">
+        આપની શુભેચ્છાઓ અમારે માટે અમૂલ્ય છે 🙏
+    </div>
+
+</body>
+
+</html>

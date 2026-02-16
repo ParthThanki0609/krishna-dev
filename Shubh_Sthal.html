@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="gu">
+
+<head>
+    <meta charset="UTF-8">
+    <title>શુભ સ્થળ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Gujarati:wght@400;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif Gujarati', serif;
+            background: linear-gradient(135deg, #fdf2e9, #f7e7dc, #fbeee6);
+            color: #5a3d2b;
+            overflow-x: hidden;
+            opacity: 0;
+            animation: pageFade 1.5s ease forwards;
+        }
+
+        /* PAGE LOAD */
+        @keyframes pageFade {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Floating Background Circles */
+        body::before,
+        body::after {
+            content: '';
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(199, 155, 122, 0.2), transparent);
+            border-radius: 50%;
+            animation: float 8s infinite ease-in-out alternate;
+            z-index: -1;
+        }
+
+        body::before {
+            top: -100px;
+            left: -100px;
+        }
+
+        body::after {
+            bottom: -100px;
+            right: -100px;
+            animation-delay: 3s;
+        }
+
+        @keyframes float {
+            from {
+                transform: translateY(0px);
+            }
+
+            to {
+                transform: translateY(40px);
+            }
+        }
+
+
+        @keyframes pageEntry {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .back-btn {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            background: linear-gradient(45deg, #5a3d2b, #8a5c42);
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 13px;
+            cursor: pointer;
+            box-shadow: 0 0 12px rgba(138, 92, 66, 0.6);
+            transition: 0.4s;
+            z-index: 10;
+        }
+
+        .back-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 18px rgba(138, 92, 66, 0.9);
+        }
+
+        .header {
+            text-align: center;
+            padding: 90px 20px 30px;
+        }
+
+        .header h1 {
+            font-size: 34px;
+            background: linear-gradient(45deg, #8a5c42, #c79b7a);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        /* Grid Layout */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        /* Card Design */
+        .card {
+            background: linear-gradient(145deg, #ffffff, #f8efe8);
+            padding: 22px;
+            border-radius: 20px;
+            border: 1px solid #e2cbb8;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
+            transition: 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 0 25px rgba(199, 155, 122, 0.7);
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            font-size: 20px;
+            color: #8a5c42;
+        }
+
+        .card p {
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        /* Map */
+        .map-container {
+            margin-top: 10px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(199, 155, 122, 0.5);
+        }
+
+        iframe {
+            width: 100%;
+            height: 250px;
+            border: 0;
+        }
+
+        /* Button */
+        .map-btn {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            background: linear-gradient(45deg, #5a3d2b, #8a5c42);
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.4s;
+            box-shadow: 0 0 12px rgba(138, 92, 66, 0.6);
+        }
+
+        .map-btn:hover {
+            transform: scale(1.08);
+            box-shadow: 0 0 20px rgba(138, 92, 66, 0.9);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 14px;
+            color: #7a5239;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button class="back-btn" onclick="window.location.href='index.html'">← પાછા જાવ</button>
+
+    <header class="header">
+        <h1>શુભ સ્થળ</h1>
+    </header>
+
+    <section class="grid">
+
+        <!-- Venue Name Card -->
+        <div class="card">
+            <h3>📍 સ્થળ નામ</h3>
+            <p>રાજપૂત સમાજ GTPL હોલ, પોરબંદર</p>
+        </div>
+
+        <!-- Description Card -->
+        <div class="card">
+            <h3>✨ સ્થળ વિશે</h3>
+            <p>
+                અમારા લગ્ન સમારોહ માટે પસંદ કરાયેલ આ ભવ્ય હોલ
+                વિશાળ જગ્યા અને સુંદર સજાવટ સાથે સજ્જ છે.
+                અહીં આધુનિક સુવિધાઓ, આરામદાયક બેઠક વ્યવસ્થા
+                અને પાર્કિંગ સુવિધા ઉપલબ્ધ છે.
+            </p>
+        </div>
+
+        <!-- Invitation Card -->
+        <div class="card">
+            <h3>🙏 વિનંતી</h3>
+            <p>
+                આપ સર્વે સ્નેહીજનોને હાર્દિક વિનંતી છે કે
+                આપ સમયસર પધારી આ પવિત્ર પ્રસંગને
+                પોતાની ઉપસ્થિતિથી ગૌરવ આપશો.
+            </p>
+        </div>
+
+        <!-- Google Map Card -->
+        <div class="card">
+            <h3>🗺️ સ્થાન નકશો</h3>
+
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps?q=Rajput+Samaj+GTPL+Hall+Porbandar&output=embed">
+                </iframe>
+            </div>
+
+            <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Rajput+Samaj+GTPL+Hall+Porbandar"
+                target="_blank">
+                Google Maps માં ખોલો
+            </a>
+        </div>
+
+    </section>
+
+    <div class="footer">
+        આપની ઉપસ્થિતિ અમારા માટે સન્માન સમાન છે 🙏
+    </div>
+
+</body>
+
+</html>

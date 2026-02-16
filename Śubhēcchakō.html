@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="gu">
+
+<head>
+    <meta charset="UTF-8">
+    <title>શુભેચ્છકો</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Gujarati:wght@400;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif Gujarati', serif;
+            background: linear-gradient(135deg, #fdf2e9, #f7e7dc, #fbeee6);
+            color: #5a3d2b;
+            overflow-x: hidden;
+            opacity: 0;
+            animation: pageFade 1.5s ease forwards;
+        }
+
+        /* PAGE LOAD */
+        @keyframes pageFade {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Floating Background Circles */
+        body::before,
+        body::after {
+            content: '';
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(199, 155, 122, 0.2), transparent);
+            border-radius: 50%;
+            animation: float 8s infinite ease-in-out alternate;
+            z-index: -1;
+        }
+
+        body::before {
+            top: -100px;
+            left: -100px;
+        }
+
+        body::after {
+            bottom: -100px;
+            right: -100px;
+            animation-delay: 3s;
+        }
+
+        @keyframes float {
+            from {
+                transform: translateY(0px);
+            }
+
+            to {
+                transform: translateY(40px);
+            }
+        }
+
+
+        /* 🔥 PAGE REVEAL */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: revealAnimation 1s ease forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.3s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.6s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.9s;
+        }
+
+        @keyframes revealAnimation {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* HEADER */
+        .header {
+            text-align: center;
+            padding: 90px 20px 20px;
+        }
+
+        .header h1 {
+            font-size: 34px;
+            background: linear-gradient(45deg, #8a5c42, #c79b7a);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        /* GRID */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            padding: 20px;
+        }
+
+        /* CARD */
+        .name-card {
+            background: linear-gradient(145deg, #ffffff, #f8efe8);
+            padding: 20px;
+            border-radius: 18px;
+            border: 1px solid #e2cbb8;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
+            cursor: pointer;
+            transition: 0.4s ease;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 8px;
+        }
+
+        .name-card:hover {
+            transform: translateY(-6px) scale(1.03);
+            box-shadow: 0 0 25px rgba(199, 155, 122, 0.6);
+        }
+
+        /* ARROW */
+        .arrow {
+            font-size: 22px;
+            transition: 0.4s ease;
+        }
+
+        .name-card:hover .arrow {
+            transform: translateX(10px);
+        }
+
+        /* FOOTER */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 14px;
+            color: #7a5239;
+        }
+
+        /* DESKTOP */
+        @media(min-width:768px) {
+            .grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .back-btn {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            background: linear-gradient(45deg, #5a3d2b, #8a5c42);
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 13px;
+            cursor: pointer;
+            box-shadow: 0 0 12px rgba(138, 92, 66, 0.6);
+            transition: 0.4s;
+            z-index: 10;
+        }
+
+        .back-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 18px rgba(138, 92, 66, 0.9);
+        }
+    </style>
+</head>
+
+<body>
+
+    <button class="back-btn" onclick="window.location.href='index.html'">← પાછા જાવ</button>
+
+    <!-- HEADER -->
+    <header class="header reveal delay-1">
+        <h1>શુભેચ્છકો</h1>
+    </header>
+
+    <!-- CARDS -->
+    <section class="reveal delay-2">
+        <div class="grid">
+
+            <div class="name-card" onclick="window.open('https://www.google.com/maps?q=Hotel+Empire+Rajkot', '_blank')">
+                <span>Hotel Empire</span>
+                <span>હોટેલ એમ્પાયર</span>
+                <span class="arrow">➜</span>
+            </div>
+
+            <div class="name-card"
+                onclick="window.open('https://www.google.com/maps/search/?api=1&query=Kathiyawadi+Kings+Gujarati+Restaurant', '_blank')">
+                <span>Kathiyawadi King’s Gujarati Restaurant</span>
+                <span>કાઠીયાવાડી કિંગ્સ ગુજરાતી રેસ્ટોરન્ટ</span>
+                <span class="arrow">➜</span>
+            </div>
+
+            <div class="name-card"
+                onclick="window.open('https://www.google.com/maps/search/?api=1&query=Geeta+Farm+House+Porbandar', '_blank')">
+                <span>Geeta Farm House</span>
+                <span>ગીતા ફાર્મ હાઉસ</span>
+                <span class="arrow">➜</span>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <div class="footer reveal delay-3">
+        આપની શુભેચ્છાઓ અમારે માટે અમૂલ્ય છે 🙏
+    </div>
+
+    <!-- BACK FUNCTION -->
+    <script>
+        document.querySelector(".back-btn").addEventListener("click", function () {
+            history.back();
+        });
+    </script>
+
+</body>
+
+</html>
